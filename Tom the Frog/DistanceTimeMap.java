@@ -2,6 +2,7 @@ package distancetime;
 
 import java.util.List;
 import java.util.Arrays;
+import java.math.BigDecimal;
 
 public class DistanceTimeMap{
 	
@@ -22,14 +23,15 @@ public class DistanceTimeMap{
 		return timeMapping.get(temp);
 	}
 	
-	public boolean checkHopDistance(int distance){
+	public boolean checkHopDistance(BigDecimal distance){
 		if (distancePointer == 3){
 			distancePointer = 0;
 		}
 		if (timePointer == 3){
 			timePointer = 0;
 		}
-		if(distance <= distanceMapping.get(distancePointer)){
+		if(distance.compareTo(new BigDecimal(distanceMapping.get(distancePointer))) == -1 
+		   || distance.compareTo(new BigDecimal(distanceMapping.get(distancePointer))) == 0){
 			return true;
 		}
 		else{
@@ -42,7 +44,7 @@ public class DistanceTimeMap{
 			return false;
 		}
 		try{
-			int temp = Integer.parseInt(value);
+			double temp = Double.parseDouble(value);
 			if(temp < 0){
 				return false;
 			}
