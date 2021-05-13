@@ -22,7 +22,7 @@ public class TomFrogMain{
 			
 			System.out.println("\n");
 			System.out.println("!!!!!!!!!! Enter Positive Numerical Values Only !!!!!!!!!! ");
-		    System.out.println("\n");
+		    	System.out.println("\n");
 			System.out.print("Again Input the Total Distance Tom the Frog must Jump (meters) : ");
 			distanceString = userInput.nextLine();
 			
