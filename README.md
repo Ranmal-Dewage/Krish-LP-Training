@@ -9,4 +9,4 @@ Launch Pad Training Content
 * See inside of the **Factory Pattern** Folder for factory design pattern implementation.
 * See inside of the **Prototype Pattern** Folder for prototype design pattern implementation.
 * See inside of the **Builder Pattern** Folder for builder design pattern implementation.
-
+* See inside of the **Chain of Responsibility Pattern** Folder for chain of responsibility design pattern implementation.
