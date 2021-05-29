@@ -1,5 +1,6 @@
-Use this commad to run the application;
+Use these commads to run the application;
 
+>npm install
 >npm run start
 
-Then goto http://localhost:3000/ to start the "Selection Sort" of numbers and strings
+Then go to "http://localhost:3000/" and follow the given instructions to start the "Selection Sort" for sorting numbers and strings
