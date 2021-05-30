@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
         "eg :- http://localhost:3000/bubble-sort <br/>" +
         "{ \"array \" : [string array.....], \"type\" : \"string\" } <br/>" +
-        "To sort Strings send a JSON object similar to above format in the body of POST request using POSTMAN. <br/><br/>"
+        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URLs. <br/><br/>"
     )
 })
 
