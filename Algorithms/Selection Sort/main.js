@@ -12,30 +12,37 @@ app.get("/", (req, res) => {
 
         "eg :- http://localhost:3000/selection-sort <br/>" +
         "{ \"array\" : [number array.....], \"type\" : \"number\" } <br/>" +
-        "To sort Numbers send a JSON object similar to above format in the body of POST request using POSTMAN. <br/><br/>" +
+        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URL. <br/><br/>" +
 
         "eg :- http://localhost:3000/selection-sort <br/>" +
         "{ \"array \" : [string array.....], \"type\" : \"string\" } <br/>" +
-        "To sort Strings send a JSON object similar to above format in the body of POST request using POSTMAN. <br/><br/>"
+        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URL. <br/><br/>"
     )
 })
 
 //array filtering endpoint
 app.post("/selection-sort", (req, res) => {
 
-    if (req.body.type === 'number') {
+    try {
 
-        let filteredArray = SelectionSort.sortNumbers(req.body.array);
-        res.send("Filtered Number Array : " + filteredArray);
+        if (req.body.type === 'number') {
 
-    } else if (req.body.type === 'string') {
+            let filteredArray = SelectionSort.sortNumbers(req.body.array);
+            res.send("Filtered Number Array : " + filteredArray);
 
-        let filteredArray = SelectionSort.sortStrings(req.body.array);
-        res.send("Filtered String Array : " + filteredArray);
+        } else if (req.body.type === 'string') {
 
-    } else {
-        res.send("Given Request Format is Invalid !!!!!");
+            let filteredArray = SelectionSort.sortStrings(req.body.array);
+            res.send("Filtered String Array : " + filteredArray);
+
+        } else {
+            res.status(400).send("User Input is Not Valid !!!!!!!");
+        }
+
+    } catch (err) {
+        res.status(400).send("User Input is Not Valid !!!!!!!");
     }
+
 
 })
 
