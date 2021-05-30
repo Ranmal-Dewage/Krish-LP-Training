@@ -23,18 +23,24 @@ app.get("/", (req, res) => {
 //array filtering endpoint
 app.post("/bubble-sort", (req, res) => {
 
-    if (req.body.type === 'number') {
+    try {
 
-        let filteredArray = BubbleSort.sortNumbers(req.body.array);
-        res.send("Filtered Number Array : " + filteredArray);
+        if (req.body.type === 'number') {
 
-    } else if (req.body.type === 'string') {
+            let filteredArray = BubbleSort.sortNumbers(req.body.array);
+            res.send("Filtered Number Array : " + filteredArray);
 
-        let filteredArray = BubbleSort.sortStrings(req.body.array);
-        res.send("Filtered String Array : " + filteredArray);
+        } else if (req.body.type === 'string') {
 
-    } else {
-        res.send("Given Request Format is Invalid !!!!!");
+            let filteredArray = BubbleSort.sortStrings(req.body.array);
+            res.send("Filtered String Array : " + filteredArray);
+
+        } else {
+            res.status(400).send("User Input is Not Valid !!!!!!!");
+        }
+
+    } catch (err) {
+        res.status(400).send("User Input is Not Valid !!!!!!!")
     }
 
 })
