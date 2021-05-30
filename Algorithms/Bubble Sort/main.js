@@ -12,11 +12,11 @@ app.get("/", (req, res) => {
 
         "eg :- http://localhost:3000/bubble-sort <br/>" +
         "{ \"array\" : [number array.....], \"type\" : \"number\" } <br/>" +
-        "To sort Numbers send a JSON object similar to above format in the body of POST request using POSTMAN. <br/><br/>" +
+        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URL. <br/><br/>" +
 
         "eg :- http://localhost:3000/bubble-sort <br/>" +
         "{ \"array \" : [string array.....], \"type\" : \"string\" } <br/>" +
-        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URLs. <br/><br/>"
+        "Send a JSON object similar to above format in the body of POST request using POSTMAN to the above URL. <br/><br/>"
     )
 })
 
