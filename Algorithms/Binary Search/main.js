@@ -9,7 +9,7 @@ app.use(express.json());
 //root endpoint
 app.get("/", (req, res) => {
     res.send(
-        "To find a given element using Binary Search send the data in the below Format <br/><br/>" +
+        "To find a given element using Binary Search, send the data in the below Format <br/><br/>" +
 
         "eg :- http://localhost:3000/binary-search <br/>" +
         "{ \"array\" : [number array.....], \"type\" : \"number\", \"element\" : number } <br/>" +

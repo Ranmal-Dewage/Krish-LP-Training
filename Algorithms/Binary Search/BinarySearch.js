@@ -8,7 +8,7 @@ export class BinarySearch {
 
         while (bottom <= top) {
             if (sortedArray[middle] === number) {
-                return `Number ${number} found at ${middle + 1} position in the above Sorted Array`
+                return `Number ${number} found at ${middle + 1} position in the above Sorted Array`;
             } else if (number > sortedArray[middle]) {
                 bottom = middle + 1;
             } else {
@@ -28,7 +28,7 @@ export class BinarySearch {
 
         while (bottom <= top) {
             if (sortedArray[middle].toLowerCase() === string.toLowerCase()) {
-                return `String ${string} found at ${middle + 1} position in the above Sorted Array`
+                return `String ${string} found at ${middle + 1} position in the above Sorted Array`;
             } else if (string.toLowerCase() > sortedArray[middle].toLowerCase()) {
                 bottom = middle + 1;
             } else {
