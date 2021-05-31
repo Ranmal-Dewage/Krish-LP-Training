@@ -19,16 +19,23 @@ app.get("/", (req, res) => {
 //endpoint to check whether two words are anagram or not
 app.post("/anagram-check", (req, res) => {
 
-    let firstWordChars = req.body.firstWord.split('');
-    let secondWordChars = req.body.secondWord.split('');
+    try {
 
-    let anagramStatus = AnagramCheck.checkAnagramStatus(firstWordChars, secondWordChars);
+        let firstWordChars = req.body.firstWord.split('');
+        let secondWordChars = req.body.secondWord.split('');
 
-    if (anagramStatus) {
-        res.send(req.body.firstWord.toUpperCase() + " and " + req.body.secondWord.toUpperCase() + " Anagram with each other");
-    } else {
-        res.send(req.body.firstWord.toUpperCase() + " and " + req.body.secondWord.toUpperCase() + " not Anagram with each other");
+        let anagramStatus = AnagramCheck.checkAnagramStatus(firstWordChars, secondWordChars);
+
+        if (anagramStatus) {
+            res.send(req.body.firstWord.toUpperCase() + " and " + req.body.secondWord.toUpperCase() + " Anagram with each other");
+        } else {
+            res.send(req.body.firstWord.toUpperCase() + " and " + req.body.secondWord.toUpperCase() + " not Anagram with each other");
+        }
+
+    } catch (err) {
+        res.status(400).send("User Input is not Valid !!!!!");
     }
+
 
 });
 
