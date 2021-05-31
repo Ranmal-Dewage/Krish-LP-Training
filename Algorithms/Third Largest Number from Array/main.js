@@ -1,4 +1,4 @@
-import { SelectionSort } from '../Selection Sort/SelectionSort.js';
+import { MergeSort } from '../Merge Sort/MergeSort.js'
 import express from 'express';
 
 const app = express();
@@ -19,15 +19,22 @@ app.get("/", (req, res) => {
 //endpoint to find the third largest number
 app.post("/third-largest-number", (req, res) => {
 
-    let filteredNumberArray = req.body.array.filter((data) => {
-        return (typeof data === 'number');
-    });
+    try {
 
-    let sortedNumbers = SelectionSort.sortNumbers(filteredNumberArray);
+        let filteredNumberArray = req.body.array.filter((data) => {
+            return (typeof data === 'number');
+        });
 
-    let thirdLargestNumber = sortedNumbers[sortedNumbers.length -3];
+        let sortedNumbers = MergeSort.mergeSort(filteredNumberArray, 'number');
 
-    res.send("Third Largest Number in a given Array of Numbers : " + thirdLargestNumber);
+        let thirdLargestNumber = sortedNumbers[sortedNumbers.length - 3];
+
+        res.send("The Sorted Number Array : " + sortedNumbers + "\n" +
+            "Third Largest Number in a given Array of Numbers : " + thirdLargestNumber);
+
+    } catch (err) {
+        res.status(400).send("User Input is not Valid !!!!!")
+    }
 
 });
 
