@@ -1,4 +1,4 @@
-import { SelectionSort } from '../Selection Sort/SelectionSort.js';
+import { MergeSort } from '../Merge Sort/MergeSort.js';
 import { MissingNumbers } from './MissingNumbers.js'
 import express from 'express';
 
@@ -20,15 +20,20 @@ app.get("/", (req, res) => {
 //missing number filtering endpoint
 app.post("/missing-numbers", (req, res) => {
 
-    let filteredNumberArray = req.body.sequence.filter((data) => {
-        return (typeof data === 'number');
-    });
+    try {
 
-    let sortedNumbers = SelectionSort.sortNumbers(filteredNumberArray);
-    let missingNumbers = MissingNumbers.getMissingNumbers(sortedNumbers);
+        let filteredNumberArray = req.body.sequence.filter((data) => {
+            return (typeof data === 'number');
+        });
 
-    res.send("Missing Numbers in Sequence : " + missingNumbers);
+        let sortedNumbers = MergeSort.mergeSort(filteredNumberArray, 'number');
+        let missingNumbers = MissingNumbers.getMissingNumbers(sortedNumbers);
 
+        res.send("Missing Numbers in Sequence : " + missingNumbers);
+
+    } catch (err) {
+        res.status(400).send("User Input is not Valid !!!!!");
+    }
 
 });
 
