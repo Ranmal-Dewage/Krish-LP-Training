@@ -15,26 +15,32 @@ app.get("/", (req, res) => {
         "{ \"array\" : [string array.....] } <br/>" +
         "Send a JSON object similar to above format in the body of POST request using POSTMAN. <br/><br/>"
     );
-})
+});
 
 //array filtering endpoint
 app.post("/lucky-number", (req, res) => {
 
+    try {
 
-    let filteredStringArray = req.body.array.filter((data) => {
-        return (typeof data === 'string');
-    })
+        let filteredStringArray = req.body.array.filter((data) => {
+            return (typeof data === 'string' && isNaN(data) && isNaN(data[0]));
+        });
 
-    let luckyNumberWithNames = filteredStringArray.map((string) => {
-        return LuckyNumber.calculateLuckyNumber(string);
-    })
+        let luckyNumberWithNames = filteredStringArray.map((string) => {
+            return LuckyNumber.calculateLuckyNumber(string);
+        });
 
-    let sortedArrayByLuckyNumber = SortingObjects.sortObjectArrayByLuckyNumber(luckyNumberWithNames);
+        let sortedArrayByLuckyNumber = SortingObjects.sortObjectArrayByLuckyNumber(luckyNumberWithNames);
 
-    let fullySortedArray = SortingObjects.sortObjectArrayByName(sortedArrayByLuckyNumber);
+        let fullySortedArray = SortingObjects.sortObjectArrayByName(sortedArrayByLuckyNumber);
 
-    console.log(fullySortedArray);
-    res.send(fullySortedArray);
+        console.log(fullySortedArray);
+        res.send(fullySortedArray);
+
+    } catch (err) {
+        res.status(400).send("User Input is not Valid !!!!!")
+    }
+
 
 })
 
