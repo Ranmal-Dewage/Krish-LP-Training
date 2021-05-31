@@ -37,8 +37,8 @@ app.post("/merge-sort", (req, res) => {
 
         } else if (req.body.type === 'string') {
 
-            let filteredArray = req.body.array.filter((number) => {
-                return (typeof number === 'string');
+            let filteredArray = req.body.array.filter((string) => {
+                return (typeof string === 'string' && isNaN(string) && isNaN(string[0]));
             });
 
             let mergeSortResult = MergeSort.mergeSort(filteredArray, 'string');

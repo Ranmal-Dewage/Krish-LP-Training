@@ -20,7 +20,7 @@ export class BubbleSort {
 
     static sortStrings(stringArray) {
         let filteredArray = stringArray.filter((string) => {
-            return (typeof string === 'string' && isNaN(string));
+            return (typeof string === 'string' && isNaN(string) && isNaN(string[0]));
         })
         for (let step = 1; step < filteredArray.length; step++) {
             for (let iterator = 0; iterator < (filteredArray.length - step); iterator++) {
