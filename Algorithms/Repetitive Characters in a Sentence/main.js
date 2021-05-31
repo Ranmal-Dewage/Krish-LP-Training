@@ -31,16 +31,17 @@ app.post("/repetitive-characters", (req, res) => {
 
             let repetitiveDetails = RepetitiveCharacters.getRepetitiveDetails(charArrayOfSentence, uniqueCharArrayOfSentence);
 
+            console.log(repetitiveDetails);
             res.send(repetitiveDetails);
 
         } else {
-            res.status(400).send("Sentence property in JSON object should be of type 'String'");
+            res.status(400).send("User Input is not Valid !!!!!");
         }
 
 
     } catch (err) {
 
-        console.log(err);
+        res.status(400).send("User Input is not Valid !!!!!");
 
     }
 
